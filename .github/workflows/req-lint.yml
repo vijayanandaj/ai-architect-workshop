@@ -1,0 +1,23 @@
+name: Requirements Lint
+on:
+  pull_request:
+    paths:
+      - "samples/requirements_sample.md"
+      - "samples/requirements.yaml"
+      - "tools/req_lint.py"
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          python -m pip install --upgrade pip pyyaml
+          if [ -f samples/requirements.yaml ]; then
+            python tools/req_lint.py samples/requirements.yaml
+          else
+            python tools/req_extract.py samples/requirements_sample.md --out samples/requirements.yaml
+            python tools/req_lint.py samples/requirements.yaml
+          fi
