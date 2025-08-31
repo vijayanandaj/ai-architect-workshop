@@ -1,0 +1,158 @@
+{
+  "profile": {
+    "system": "ShopPlus",
+    "weights": {
+      "performance_p95_ms": 0.25,
+      "availability_pct": 0.2,
+      "cost_monthly_usd": 0.15,
+      "operability_score": 0.1,
+      "scalability_score": 0.1,
+      "security_score": 0.1,
+      "time_to_market_weeks": 0.1
+    },
+    "targets": {
+      "performance_p95_ms": 300,
+      "availability_pct": 99.9,
+      "cost_monthly_usd": 3000,
+      "operability_score": 4,
+      "scalability_score": 4,
+      "security_score": 4,
+      "time_to_market_weeks": 8
+    },
+    "bounds": {
+      "performance_p95_ms": [
+        200,
+        1000
+      ],
+      "availability_pct": [
+        99.0,
+        99.99
+      ],
+      "cost_monthly_usd": [
+        1000,
+        25000
+      ],
+      "operability_score": [
+        1,
+        5
+      ],
+      "scalability_score": [
+        1,
+        5
+      ],
+      "security_score": [
+        1,
+        5
+      ],
+      "time_to_market_weeks": [
+        2,
+        26
+      ]
+    },
+    "hard_constraints": [
+      {
+        "metric": "availability_pct",
+        "min": 99.5
+      },
+      {
+        "metric": "security_score",
+        "min": 3
+      }
+    ]
+  },
+  "scored": [
+    {
+      "name": "Event-driven microservices + Kafka",
+      "kind": "event-driven",
+      "ok": true,
+      "violations": [],
+      "overall": 0.8432,
+      "per_metric": {
+        "performance_p95_ms": 0.85,
+        "availability_pct": 0.96,
+        "cost_monthly_usd": 0.758,
+        "operability_score": 0.75,
+        "scalability_score": 1.0,
+        "security_score": 1.0,
+        "time_to_market_weeks": 0.5
+      },
+      "raw": {
+        "performance_p95_ms": 320,
+        "availability_pct": 99.95,
+        "cost_monthly_usd": 6800,
+        "operability_score": 4,
+        "scalability_score": 5,
+        "security_score": 5,
+        "time_to_market_weeks": 14
+      },
+      "notes": [
+        "Resilience via replay; looser coupling; async throughput."
+      ],
+      "risks": [
+        "Eventual consistency; schema governance required."
+      ]
+    },
+    {
+      "name": "Microservices on AKS + API Gateway",
+      "kind": "microservices",
+      "ok": true,
+      "violations": [],
+      "overall": 0.8389,
+      "per_metric": {
+        "performance_p95_ms": 0.9,
+        "availability_pct": 0.909,
+        "cost_monthly_usd": 0.825,
+        "operability_score": 0.75,
+        "scalability_score": 1.0,
+        "security_score": 0.75,
+        "time_to_market_weeks": 0.583
+      },
+      "raw": {
+        "performance_p95_ms": 280,
+        "availability_pct": 99.9,
+        "cost_monthly_usd": 5200,
+        "operability_score": 4,
+        "scalability_score": 5,
+        "security_score": 4,
+        "time_to_market_weeks": 12
+      },
+      "notes": [
+        "Clear ownership; independent deploys; scale per service."
+      ],
+      "risks": [
+        "Higher ops complexity and platform cost."
+      ]
+    },
+    {
+      "name": "Monolith on AKS + Postgres",
+      "kind": "monolith",
+      "ok": true,
+      "violations": [],
+      "overall": 0.7454,
+      "per_metric": {
+        "performance_p95_ms": 0.812,
+        "availability_pct": 0.707,
+        "cost_monthly_usd": 0.95,
+        "operability_score": 0.5,
+        "scalability_score": 0.5,
+        "security_score": 0.75,
+        "time_to_market_weeks": 0.833
+      },
+      "raw": {
+        "performance_p95_ms": 350,
+        "availability_pct": 99.7,
+        "cost_monthly_usd": 2200,
+        "operability_score": 3,
+        "scalability_score": 3,
+        "security_score": 4,
+        "time_to_market_weeks": 6
+      },
+      "notes": [
+        "Simplest deployment & lowest operational overhead."
+      ],
+      "risks": [
+        "Tight coupling slows future changes."
+      ]
+    }
+  ]
+}
