@@ -1,0 +1,18 @@
+system: "ShopPlus"
+domains: ["Catalog","Order","Payments"]
+services:
+  - name: "WebApp"
+  - name: "MonolithAPI"
+datastores:
+  - name: "MainDB (PostgreSQL)"
+  - name: "RedisCache"
+integrations:
+  - name: "Stripe"
+  - name: "EmailGateway"
+quality_attributes:
+  latency_p95_ms: 300
+  availability: "99.9%"
+  throughput_rps: 1000
+pain_points:
+  - "Tight coupling in MonolithAPI"
+  - "Slow releases due to database migrations"

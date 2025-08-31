@@ -1,0 +1,45 @@
+options:
+  - name: "Monolith on AKS + Postgres"
+    kind: "monolith"
+    metrics:
+      performance_p95_ms: 350
+      availability_pct: 99.7
+      cost_monthly_usd: 2200
+      operability_score: 3
+      scalability_score: 3
+      security_score: 4
+      time_to_market_weeks: 6
+    notes:
+      - "Simplest deployment & lowest operational overhead."
+    risks:
+      - "Tight coupling slows future changes."
+
+  - name: "Microservices on AKS + API Gateway"
+    kind: "microservices"
+    metrics:
+      performance_p95_ms: 280
+      availability_pct: 99.9
+      cost_monthly_usd: 5200
+      operability_score: 4
+      scalability_score: 5
+      security_score: 4
+      time_to_market_weeks: 12
+    notes:
+      - "Clear ownership; independent deploys; scale per service."
+    risks:
+      - "Higher ops complexity and platform cost."
+
+  - name: "Event-driven microservices + Kafka"
+    kind: "event-driven"
+    metrics:
+      performance_p95_ms: 320
+      availability_pct: 99.95
+      cost_monthly_usd: 6800
+      operability_score: 4
+      scalability_score: 5
+      security_score: 5
+      time_to_market_weeks: 14
+    notes:
+      - "Resilience via replay; looser coupling; async throughput."
+    risks:
+      - "Eventual consistency; schema governance required."

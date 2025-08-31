@@ -1,0 +1,17 @@
+requirements:
+  - id: R1
+    type: nfr
+    text: "System should be fast and reliable"  # intentionally vague to see linter/LLM advice
+  - id: R2
+    type: nfr
+    text: "Availability must be high"           # intentionally vague (no %)
+  - id: R3
+    type: func
+    text: "User can search products"
+    acceptance: []                              # intentionally empty to show advice
+  - id: R4
+    type: nfr
+    text: "Encrypt customer data"               # intentionally vague (at rest/in transit?)
+  - id: R5
+    type: nfr
+    text: "p95 latency < 300 ms for product search"

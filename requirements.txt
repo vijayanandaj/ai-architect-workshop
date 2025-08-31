@@ -2,3 +2,5 @@ pyyaml
 jsonschema
 pandas
 matplotlib
+pyyaml
+openai>=1.40.0

@@ -1,0 +1,10 @@
+system: "ShopPlus"
+weights: { performance_p95_ms: 0.25, availability_pct: 0.20, cost_monthly_usd: 0.15,
+           operability_score: 0.10, scalability_score: 0.10, security_score: 0.10, time_to_market_weeks: 0.10 }
+targets: { performance_p95_ms: 300, availability_pct: 99.9, cost_monthly_usd: 3000,
+           operability_score: 4, scalability_score: 4, security_score: 4, time_to_market_weeks: 8 }
+bounds:  { performance_p95_ms: [200,1000], availability_pct: [99.0,99.99], cost_monthly_usd: [1000,25000],
+           operability_score: [1,5], scalability_score: [1,5], security_score: [1,5], time_to_market_weeks: [2,26] }
+hard_constraints:
+  - { metric: availability_pct, min: 99.5 }
+  - { metric: security_score, min: 3 }
